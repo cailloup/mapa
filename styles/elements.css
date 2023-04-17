@@ -6,9 +6,15 @@
     width: 100%;
     position: absolute;
     text-align: center;
-    transition: transform 100ms ease-in-out;
+    transition: transform 200ms ease-in-out;
   }
+  @media only screen and (hover: none) and (pointer: coarse){
 
+    #mapdiv{
+        transition: transform 0ms ease-in-out;
+    } 
+    
+    }
 #map-section{
     position: absolute;
     width: 100%;
