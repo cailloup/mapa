@@ -1,34 +1,3 @@
-/*
-    zoom
-*/
-let scale = 1;
-const el = document.getElementById("mapdiv");
-
-function zoom(event) {
-  if (event.type == "touchmove") {
-    event.preventDefault();
-    let finger1 = event.touches[0];
-    let finger2 = event.touches[1];
-
-    let distance = Math.sqrt(
-      Math.pow(finger2.clientX - finger1.clientX, 2) +
-      Math.pow(finger2.clientY - finger1.clientY, 2)
-    );
-
-    let scaleValue = distance / 100;
-
-    if (scaleValue > 0.25 && scaleValue < 4) {
-      scale = scaleValue;
-    }
-  } else {
-    scale += event.deltaY * -0.001;
-  }
-
-  el.style.transform = `scale(${scale})`;
-}
-
-document.onwheel = zoom;
-document.addEventListener("touchmove", zoom, { passive: false });
 
 
 //move map
