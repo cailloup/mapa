@@ -1,3 +1,6 @@
+/*
+    zoom
+*/
 let scale = 1;
 const el = document.getElementById("mapdiv");
 
@@ -28,7 +31,7 @@ document.onwheel = zoom;
 document.addEventListener("touchmove", zoom, { passive: false });
 
 
-//move
+//move map
 
 const mapSection = document.getElementById("map-section")
 var isTouchDevice = 'ontouchstart' in document.documentElement;

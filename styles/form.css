@@ -1,0 +1,10 @@
+#fpartido{
+    width: 60%;
+    margin: auto;
+    padding: 10px;
+    display: block;
+    border-radius: 50px;
+    border: none;
+    box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.2);
+    font-size: 15px;
+}
