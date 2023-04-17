@@ -6,11 +6,12 @@ body{
 }
 
 .menu{
-    padding: 20px 0;
+    height: 10vh;
     width: 100vw;
     background-color: white;
     position: absolute;
     z-index: 2;
+    display: flex;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 

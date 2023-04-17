@@ -1,8 +1,10 @@
 /*
     zoom
 */
+const mapSectionZoom = document.getElementById("map-section");
 
 let scale = 1;
+let lastScale = 1;
 let fingerdist = 0;
 let onScreenFingers = []
 
@@ -19,13 +21,13 @@ function zoom(delta) {
 function onTouchStart(event){
     
   if (event.touches.length == 2){
-    onScreenFingers = [event.touches[0], event.touches[1]];
-    fingerdist = fingerDistance(onScreenFingers);
+        onScreenFingers = [event.touches[0], event.touches[1]];
+        fingerdist = fingerDistance(onScreenFingers);
   }
 }
 
 function onTouchEnd(event){
-    alert(deltaFingers);
+    lastScale = scale;
     fingerdist=0;
 }
   
@@ -38,20 +40,21 @@ function fingerDistance(onScreenFingers){
 
 function onTouchMove(event){
     
-        let deltaFingers = fingerDistance(event.touches) - fingerdist;
+    let deltaFingers = fingerDistance(event.touches) - fingerdist;
         
+    scale = lastScale + deltaFingers * 0.005;
+    el.style.transform = `scale(${scale})`;
     
-    zoom(deltaFingers * -0.2);
 }
 
 function onWheel(event){
     zoom(event.deltaY);
 }
 
-document.addEventListener("wheel",onWheel,false);
+mapSectionZoom.addEventListener("wheel",onWheel,false);
 
-document.addEventListener("touchmove", onTouchMove,{ passive: false });
+mapSectionZoom.addEventListener("touchmove", onTouchMove,{ passive: false });
 
-document.addEventListener("touchstart", onTouchStart,false);
+mapSectionZoom.addEventListener("touchstart", onTouchStart,false);
 
-document.addEventListener("touchend", onTouchEnd,false);
+mapSectionZoom.addEventListener("touchend", onTouchEnd,false);
